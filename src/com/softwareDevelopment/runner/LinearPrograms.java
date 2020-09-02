@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class linearPrograms {
+public class LinearPrograms {
 
     private static void firstTask(){
         double firstVariable = (int) (Math.random() * 10);
