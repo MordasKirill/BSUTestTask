@@ -72,7 +72,6 @@ public class LinearPrograms {
         //2 random input variables introduced for the first tusk as an example
         double firstVariableTask3 = (Math.random() * 360);
         double secondVariableTask3 = (Math.random() * 360);
-
         double resultTask3 = calculateFunctionForTheThirdTask(firstVariableTask3, secondVariableTask3);
         System.out.println("This is a result of tusk 3: " + resultTask3);
 
