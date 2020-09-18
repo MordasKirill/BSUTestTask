@@ -1,44 +1,9 @@
-package branching;
+package com.softwareDevelopment.lesson1;
 
-public class Branching {
+import java.util.Arrays;
 
-    private static boolean isTriangle(double firstAngle, double secondAngle) {
-        if (firstAngle > 0 && secondAngle > 0) {
-            return firstAngle + secondAngle < 180;
-        }
-        return false;
-    }
+public class BranchingPrograms {
 
-    private static boolean isTriangleRectangular(double firstAngle, double secondAngle) {
-        return  firstAngle == 90 || secondAngle == 90 || 180 - firstAngle - secondAngle == 90;
-    }
-
-    private static int calculateFunctionForTheSecondTask(int firstVariable, int secondVariable, int thirdVariable, int fourthVariable){
-        int firstMin = Math.min(firstVariable, secondVariable);
-        int secondMin = Math.min(thirdVariable, fourthVariable);
-        int result = Math.max(firstMin, secondMin);
-        return result;
-    }
-    private static boolean calculateFunctionForTheTaskTree(int x, int y, int x0, int y0, int x1, int y1){
-        double maxOfXAndX0 = Math.max(x, x0); // Максимум из x и x0
-        double minOfX0AndX1 = Math.min(x0, x1); // Минимум из x0 и x1
-        double maxOfAllX = Math.max(maxOfXAndX0, x1); // Максимум всех x
-        double maxOfYAndY0 = Math.max(y, y0); // Максимум из y и y0
-        double minOfY0AndY1 = Math.min(y0, y1); // Минимум из y0 и y1
-        double maxOfAllY = Math.max(maxOfYAndY0, y); // Максимум всех y
-        return (maxOfXAndX0 - minOfX0AndX1) / (maxOfAllX - minOfX0AndX1) == (maxOfYAndY0 - minOfY0AndY1) / (maxOfAllY - minOfY0AndY1);
-        }
-    private static boolean calculateFunctionForTheTaskFour(int A, int B, int x, int y, int z){
-        return (y <= A) && (z <= B) || (x <= A) && (z <= B) || (x <= A) && (y <= B);
-    }
-    private static double calculateFunctionForTheTaskFive(double variable){
-        double result;
-        if (variable <= 3){
-            return result = Math.pow(variable, 2) - (3 * variable + 9);
-        }if (variable > 3){
-            return result = 1 / (Math.pow(variable, 3) + 6);
-        }else return result = 0;
-    }
     public static void main(String[] args) {
         //Task #1 for part 2, triangle task
         //2 random input variables introduced for the first tusk as an example
@@ -79,5 +44,55 @@ public class Branching {
         System.out.println("This is a result of task 5 part 2: " + resultTask5);
 
     }
+
+    private static boolean isTriangle(double firstAngle, double secondAngle) {
+        if (firstAngle > 0 && secondAngle > 0) {
+            return firstAngle + secondAngle < 180;
+        }
+        return false;
+    }
+
+    private static boolean isTriangleRectangular(double firstAngle, double secondAngle) {
+        return  firstAngle == 90 || secondAngle == 90 || 180 - firstAngle - secondAngle == 90;
+    }
+
+    private static int calculateFunctionForTheSecondTask(int firstVariable, int secondVariable, int thirdVariable, int fourthVariable){
+        int firstMin = Math.min(firstVariable, secondVariable);
+        int secondMin = Math.min(thirdVariable, fourthVariable);
+        int result = Math.max(firstMin, secondMin);
+        return result;
+    }
+    private static boolean calculateFunctionForTheTaskTree(int x, int y, int x0, int y0, int x1, int y1) {
+        if ( x == x1 && x1 == x0 ||  y == y1 && y1 == y0) {
+            return true;
+        }
+            double maxOfXAndX0 = Math.max(x, x0); // Максимум из x и x0
+            double minOfX0AndX1 = Math.min(x0, x1); // Минимум из x0 и x1
+            double maxOfAllX = Math.max(maxOfXAndX0, x1); // Максимум всех x
+            double minOfAllX = Math.min(minOfX0AndX1, x); // Минимум всех x
+            double maxOfYAndY0 = Math.max(y, y0); // Максимум из y и y0
+            double minOfY0AndY1 = Math.min(y0, y1); // Минимум из y0 и y1
+            double maxOfAllY = Math.max(maxOfYAndY0, y); // Максимум всех y
+            double minOfAllY = Math.min(minOfY0AndY1, y); // Минимум всех y
+            double[] middlePointX = new double[]{x, x0, x1};
+            Arrays.sort(middlePointX);
+            double[] middlePointY = new double[]{y, y0, y1};
+            Arrays.sort(middlePointY);
+            return (middlePointX[1] - minOfAllX) / (maxOfAllX - minOfAllX) == (middlePointY[1] - minOfAllY) / (maxOfAllY - minOfAllY);
+        }
+
+    private static boolean calculateFunctionForTheTaskFour(int a, int b, int x, int y, int z){
+        return (y <= a) && (z <= b) || (x <= a) && (z <= b) || (x <= b) && (z <= a) ||
+                (x <= a) && (y <= b)  || (x <= b) && (y <= a)|| (y <= b) && (z <= a);
+    }
+    private static double calculateFunctionForTheTaskFive(double variable){
+        double result;
+        if (variable <= 3){
+            return result = Math.pow(variable, 2) - ((3 * variable) + 9);
+        }else   {
+            return result = 1 / (Math.pow(variable, 3) + 6);
+        }
+    }
+
 }
 

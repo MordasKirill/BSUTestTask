@@ -1,53 +1,9 @@
-package com.softwareDevelopment.runner;
+package com.softwareDevelopment.lesson1;
 
 import java.util.Scanner;
 import static java.lang.Math.*;
 
 public class LinearPrograms {
-
-    private static double calculateFunctionForTheFirstTask(double firstVariable, double secondVariable, double thirdVariable) {
-        double result = ((firstVariable - 3) * secondVariable / 2) + thirdVariable;
-        return result;
-    }
-
-    private static double calculateFunctionForTheSecondTask(double firstVariable, double secondVariable, double thirdVariable) {
-        double sqrt = Math.sqrt(Math.pow(secondVariable, 2) + 4 * firstVariable * thirdVariable);
-        double beforeMinus = ((secondVariable + sqrt) / (2 * firstVariable));
-        double afterMinus = ((Math.pow(firstVariable, 3) * thirdVariable) + Math.pow(secondVariable, -2));
-        double result = beforeMinus - afterMinus;
-        return (int) Math.round(result);
-    }
-
-    private static double calculateFunctionForTheThirdTask(double firstVariable, double secondVariable) {
-        double result = ((sin(firstVariable) + cos(secondVariable)) / (cos(firstVariable) - sin(secondVariable))) * (tan(firstVariable * secondVariable));
-        return result;
-    }
-
-    private static double calculateFunctionForTheTaskNumberFour(double firstVariable) {
-        double beforePoint = (firstVariable * 1000) % 1000;
-        double afterPoint = (int) firstVariable / 1000.0;
-        double result = beforePoint + afterPoint;
-        return result;
-    }
-
-    private static String calculateFunctionForTheTaskNumberFive(int amountOfSeconds) {
-        int seconds = amountOfSeconds % 60;
-        int minutes = (amountOfSeconds / 60) % 60;
-        int hours = (amountOfSeconds / 60) / 60;
-        return hours + "ч " + minutes + "мин " + seconds + "сек ";
-    }
-
-    private static boolean calculateFunctionForTheTaskNumberSix(int firstVariable, int secondVariable) {
-        if (firstVariable <= 2 && secondVariable <= 4 && firstVariable >= -2 && secondVariable >=0) {
-            return true;
-        }
-        if (firstVariable <= 4 && secondVariable <= 0 && firstVariable >= -4 && secondVariable >= -3) {
-            return true;
-        } else return false;
-    }
-
-
-
     public static void main(String[] args) {
 
         //Task #1 calculate result of the function
@@ -85,7 +41,7 @@ public class LinearPrograms {
         //1 random input variables introduced for the first tusk as an example
         int amountOfSecondsTask5 = 5000;
         String resultTask5 = calculateFunctionForTheTaskNumberFive(amountOfSecondsTask5);
-        System.out.println("This is a result of tusk 5: " + resultTask5);
+        System.out.println("This is a result of task 5: " + resultTask5);
 
         //Task #6 calculate result of the function
         //1 random input variables introduced for the first tusk as an example
@@ -102,4 +58,40 @@ public class LinearPrograms {
 
 
     }
+    private static double calculateFunctionForTheFirstTask(double firstVariable, double secondVariable, double thirdVariable) {
+        return ((firstVariable - 3) * secondVariable / 2) + thirdVariable;
+    }
+
+    private static double calculateFunctionForTheSecondTask(double firstVariable, double secondVariable, double thirdVariable) {
+        double sqrt = Math.sqrt(Math.pow(secondVariable, 2) + 4 * firstVariable * thirdVariable);
+        double beforeMinus = ((secondVariable + sqrt) / (2 * firstVariable));
+        double afterMinus = ((Math.pow(firstVariable, 3) * thirdVariable) + Math.pow(secondVariable, -2));
+        double result = beforeMinus - afterMinus;
+        return Math.round(result);
+    }
+
+    private static double calculateFunctionForTheThirdTask(double firstVariable, double secondVariable) {
+        return ((sin(firstVariable) + cos(secondVariable)) / (cos(firstVariable) - sin(secondVariable))) * (tan(firstVariable * secondVariable));
+    }
+
+    private static double calculateFunctionForTheTaskNumberFour(double firstVariable) {
+        double beforePoint = (firstVariable * 1000) % 1000;
+        double afterPoint = (int) firstVariable / 1000.0;
+        return beforePoint + afterPoint;
+    }
+
+    private static String calculateFunctionForTheTaskNumberFive(int amountOfSeconds) {
+        int seconds = amountOfSeconds % 60;
+        int minutes = (amountOfSeconds / 60) % 60;
+        int hours = (amountOfSeconds / 60) / 60;
+        return hours + "ч " + minutes + "мин " + seconds + "сек ";
+    }
+
+    private static boolean calculateFunctionForTheTaskNumberSix(int x, int y) {
+        return ((y>= 0 && y<4 && x>-2 && x<2) || (y<0 && y>-3 && x>-4 && x<4));
+    }
+
+
+
+
 }
