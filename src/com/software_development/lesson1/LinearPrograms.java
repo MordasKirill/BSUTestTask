@@ -1,4 +1,4 @@
-package com.softwareDevelopment.lesson1;
+package com.software_development.lesson1;
 
 import java.util.Scanner;
 import static java.lang.Math.*;
