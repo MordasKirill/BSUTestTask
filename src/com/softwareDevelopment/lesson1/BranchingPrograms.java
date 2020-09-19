@@ -59,10 +59,10 @@ public class BranchingPrograms {
     private static int calculateFunctionForTheSecondTask(int firstVariable, int secondVariable, int thirdVariable, int fourthVariable){
         int firstMin = Math.min(firstVariable, secondVariable);
         int secondMin = Math.min(thirdVariable, fourthVariable);
-        int result = Math.max(firstMin, secondMin);
-        return result;
+        return  Math.max(firstMin, secondMin);
     }
     private static boolean calculateFunctionForTheTaskTree(int x, int y, int x0, int y0, int x1, int y1) {
+        // TODO: задача на доработке
         if ( x == x1 && x1 == x0 ||  y == y1 && y1 == y0) {
             return true;
         }
@@ -86,13 +86,12 @@ public class BranchingPrograms {
                 (x <= a) && (y <= b)  || (x <= b) && (y <= a)|| (y <= b) && (z <= a);
     }
     private static double calculateFunctionForTheTaskFive(double variable){
-        double result;
+
         if (variable <= 3){
-            return result = Math.pow(variable, 2) - ((3 * variable) + 9);
+            return Math.pow(variable, 2) - ((3 * variable) + 9);
         }else   {
-            return result = 1 / (Math.pow(variable, 3) + 6);
+            return 1 / (Math.pow(variable, 3) + 6);
         }
     }
-
 }
 

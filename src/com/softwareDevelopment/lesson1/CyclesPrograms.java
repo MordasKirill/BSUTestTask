@@ -77,7 +77,6 @@ public class CyclesPrograms {
     }
 
     private static void calculateFunctionForTheSecondTask(int A, int B, double h, int x) {
-        //Я не уверен, что уловил суть задания, но вроде так
         int y;
         for (double i = A; i <= B; i = i + h) {
             if (x > 2) {
