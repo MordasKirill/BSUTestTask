@@ -6,13 +6,13 @@ import java.util.Scanner;
 public class CyclesPrograms {
     public static void main(String[] args) {
         //Task #1, sum from 1 to n task
-        //1 random input variable introduced for the first tusk as an example
+        //1 random input variable introduced for the first task as an example
         int variableTask1 = (int) (Math.random() * 10);
         int resultTask1 = calculateFunctionForTheFirstTask(variableTask1);
         System.out.println("This is a result of task 1: " + resultTask1);
 
         //Task #2, calculate function task
-        //1 random input variable introduced for the first tusk as an example
+        //1 random input variable introduced for the first task as an example
         Scanner scannerForTaskTwo = new Scanner(System.in);
         System.out.println("Enter start line A");
         int firstVariableTaskTwo = scannerForTaskTwo.nextInt();
@@ -27,7 +27,7 @@ public class CyclesPrograms {
 
 
         //Task #3, 1^2 + 2^2 + ... + n^2 task
-        //1 random input variable introduced for the first tusk as an example
+        //1 random input variable introduced for the first task as an example
         int resultTask3 = calculateFunctionForTheThirdTask();
         System.out.println("This is a result of task 3: " + resultTask3);
 
@@ -57,7 +57,7 @@ public class CyclesPrograms {
         calculateFunctionForTheTaskSeven(firstVariableTaskSeven, secondVariableTaskSeven);
 
         //Task #8, find common numbers task
-        //2 random input variable introduced for the first tusk as an example
+        //2 random input variable introduced for the first task as an example
         Scanner scannerForTaskEight = new Scanner(System.in);
         System.out.println("\nEnter number a: ");
         String firstVariableTaskEight = scannerForTaskEight.nextLine();

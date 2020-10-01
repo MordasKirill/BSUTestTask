@@ -6,7 +6,7 @@ public class BranchingPrograms {
 
     public static void main(String[] args) {
         //Task #1 for part 2, triangle task
-        //2 random input variables introduced for the first tusk as an example
+        //2 random input variables introduced for the first task as an example
         double firstAngleTask1 = (Math.random() * 180);
         double secondAngleTask1 = (Math.random() * 180);
         boolean resultTaskIsTriangle = isTriangle(firstAngleTask1, secondAngleTask1);
@@ -14,7 +14,7 @@ public class BranchingPrograms {
         System.out.println("This is a result of task 1 part 2: it is triangle " + resultTaskIsTriangle + " this triangle is rectangular " + resultTaskIsTriangleRectangular);
 
         //Task #2 for part 2, Max, min task
-        //4 random input variables introduced for the first tusk as an example
+        //4 random input variables introduced for the first task as an example
         int firstVariableTask1 = (int) (Math.random() * 10);
         int secondVariableTask1 = (int) (Math.random() * 10);
         int thirdVariableTask1 = (int) (Math.random() * 10);
@@ -23,7 +23,7 @@ public class BranchingPrograms {
         System.out.println("This is a result of task 2 part 2: " + resultTask2);
 
         //Task #3 for part 2, Are points on a straight line task
-        //3 pares of random input variables introduced for the first tusk as an example
+        //3 pares of random input variables introduced for the first task as an example
         int x1 = (int) (Math.random() * 10), y1 = (int) (Math.random() * 10);
         int x2 = (int) (Math.random() * 10), y2 = (int) (Math.random() * 10);
         int x3 = (int) (Math.random() * 10), y3 = (int) (Math.random() * 10);
@@ -31,14 +31,14 @@ public class BranchingPrograms {
         System.out.println("This is a result of task 3 part 2: Points are on a straight line " + resultTask3);
 
         //Task #4 for part 2, Will brick go trough the hole task
-        //5 random input variables introduced for the first tusk as an example
+        //5 random input variables introduced for the first task as an example
         int x = (int) (Math.random() * 10), y = (int) (Math.random() * 10), z = (int) (Math.random() * 10);
         int A = (int) (Math.random() * 10), B = (int) (Math.random() * 10);
         boolean resultPart2Task4 = calculateFunctionForTheTaskFour(A, B, x, y, z);
         System.out.println("This is a result of task 4 part 2: brick will go trough " + resultPart2Task4);
 
         //Task #5 for part 2, Calculate function task
-        //1 random input variable introduced for the first tusk as an example
+        //1 random input variable introduced for the first task as an example
         int variableTask5 = (int) (Math.random() * 10);
         double resultTask5 = calculateFunctionForTheTaskFive(variableTask5);
         System.out.println("This is a result of task 5 part 2: " + resultTask5);

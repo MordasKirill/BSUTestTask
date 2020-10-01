@@ -7,7 +7,7 @@ public class LinearPrograms {
     public static void main(String[] args) {
 
         //Task #1 calculate result of the function
-        //3 random input variables introduced for the first tusk as an example
+        //3 random input variables introduced for the first task as an example
         double firstVariableTask1 = (int) (Math.random() * 10);
         double secondVariableTask1 = (int) (Math.random() * 10);
         double thirdVariableTask1 = (int) (Math.random() * 10);
@@ -16,7 +16,7 @@ public class LinearPrograms {
         System.out.println("This is a result of tusk 1: " + resultTask1 );
 
         //Task #2 calculate result of the function
-        //3 random input variables introduced for the first tusk as an example
+        //3 random input variables introduced for the first task as an example
         double firstVariableTask2 = (Math.random() * 20 - 10);
         double secondVariableTask2 = (Math.random() * 20 - 10);
         double thirdVariableTask2 = (Math.random() * 20 - 10);
@@ -25,26 +25,26 @@ public class LinearPrograms {
         System.out.println("This is a result of tusk 2: " + resultTask2);
 
         //Task #3 calculate result of the function
-        //2 random input variables introduced for the first tusk as an example
+        //2 random input variables introduced for the first task as an example
         double firstVariableTask3 = (Math.random() * 360);
         double secondVariableTask3 = (Math.random() * 360);
         double resultTask3 = calculateFunctionForTheThirdTask(firstVariableTask3, secondVariableTask3);
         System.out.println("This is a result of tusk 3: " + resultTask3);
 
         //Task #4 calculate result of the function
-        //1 random input variables introduced for the first tusk as an example
+        //1 random input variables introduced for the first task as an example
         double firstVariableTask4 = 123.456;
         double resultTask4 = calculateFunctionForTheTaskNumberFour(firstVariableTask4);
         System.out.println("This is a result of tusk 4: " + resultTask4);
 
         //Task #5 calculate result of the function
-        //1 random input variables introduced for the first tusk as an example
+        //1 random input variables introduced for the first task as an example
         int amountOfSecondsTask5 = 5000;
         String resultTask5 = calculateFunctionForTheTaskNumberFive(amountOfSecondsTask5);
         System.out.println("This is a result of task 5: " + resultTask5);
 
         //Task #6 calculate result of the function
-        //1 random input variables introduced for the first tusk as an example
+        //1 random input variables introduced for the first task as an example
         int firstVariableTask6;
         int secondVariableTask6;
         System.out.println("#Task 6.");
