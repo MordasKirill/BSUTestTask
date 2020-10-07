@@ -1,59 +1,50 @@
 package com.software_development.lesson2;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 public class OneDimensionalArrays {
     public static void main(String[] args) {
-
+        sumOfElementsWhoseOrdinalNumbersArePrimeNumbersTask6(randomArray());
         //Task #1
-        //1 random input variable introduced for the first task as an example
+        //Find the sum of elements that are multiples of a given K
         Scanner inputTask1 = new Scanner(System.in);
         System.out.println("Input k: ");
         int variableTask1 = inputTask1.nextInt();
-        int resultTask1 = task1(variableTask1);
+        int resultTask1 = multipleElementTask1(variableTask1, randomArray());
         System.out.println("This is a result of task 1: " + resultTask1);
 
         //Task #2
-        //1 random input variable introduced for the first task as an example
+        //Replace terms larger than given Z by Z
         Scanner inputTask2 = new Scanner(System.in);
-        System.out.println("Input k: ");
+        System.out.println("Input Z: ");
         int variableTask2 = inputTask2.nextInt();
-        int resultTask2 = task2(variableTask2);
+        int resultTask2 = countingReplacementsTask2(randomArray(), variableTask2);
         System.out.println("This is a result of task 2: " + resultTask2);
 
         //Task #3
-        //1 random input variable introduced for the first task as an example
-        String resultTask3 = task3();
+        //Count how many positive  negative and zero elements
+        String resultTask3 = countingPositiveNegativeZeroElementsTask3(randomArray());
         System.out.println("This is a result of task 3: " + resultTask3);
 
         //Task #4
-        //1 random input array introduced for the first task as an example
-        int variableTask4 = (int) (Math.random()*20);
-        double[] arrayForTask4 = new double[variableTask4];
-        for (int i = 0; i < arrayForTask4.length; i++) {
-            arrayForTask4[i] = (int) (Math.random() * 100) + 1;
-        }
-        System.out.println(Arrays.toString(arrayForTask4));
-        double[] resultTask5 = task4(arrayForTask4);
+        //Swap the largest and smallest elements
+        double[] resultTask5 = swapMaxAndMinElementTask4(randomArray());
         System.out.println("This is a result of task 4: " + Arrays.toString(resultTask5));
 
         //Task #5
-        //1 random input variable introduced for the first task as an example
-        int variableForTask5 = (int) (Math.random()*10);
-        task5(variableForTask5);
+        //Print numbers for which ai> i
+        System.out.println("Result of task 5: ");
+        findingNumberValueGreaterThanOrdinalTask5(randomArray());
 
         //Task #6
-        //1 random input variable introduced for the first task as an example
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a size of array:");
-        int variableForTask6 = scanner.nextInt();
-        task6(variableForTask6);
+        //Calculate the sum of numbers whose ordinal numbers are prime numbers
+        System.out.println("Result of task 6: ");
+        sumOfElementsWhoseOrdinalNumbersArePrimeNumbersTask6(randomArray());
 
         //Task #8
-        //1 random input variable and random array introduced for the first task as an example
+        //Throw out members equal min( a1, a2, ..., an )
         int variableTask8 = (int) (Math.random()*20);
         Random rand = new Random();
         int[] firstArray = new int[variableTask8];
@@ -63,15 +54,16 @@ public class OneDimensionalArrays {
             System.out.print(firstArray[i] + ", ");
         }
         System.out.println();
-        task8(variableTask8, firstArray);
+        int [] resultTask8 = comparingElementsTask8(variableTask8, firstArray);
+        System.out.println(Arrays.toString(resultTask8));
 
         //Task #9
-        //1 random input array introduced for the first task as an example
-        int resultTask9 = task9(firstArray);
+        //Find the most common number
+        int resultTask9 = mostCommonNumberTask9(firstArray);
         System.out.println("This is a result of task 4: " + resultTask9);
 
         //Task #10
-        //1 random input array introduced for the task 10 as an example
+        //Compress the array, throwing out every second element from it, fill the free spaces with 0
         System.out.println("Enter the size of array: ");
         Scanner scannerForTask10 = new Scanner(System.in);
         int variableForTask10 = scannerForTask10.nextInt();
@@ -86,13 +78,17 @@ public class OneDimensionalArrays {
         System.out.println();
         arrayCompressing(array);
 
-        //Task #11
-        task11();
-
     }
 
-    private static int task1(int variableTask1) {
-        int[] array = new int[]{2, 3, 4, 5, 6, 7, 8};
+    private static double[] randomArray(){
+        int variable = (int) (Math.random()*20);
+        double[] array = new double[variable];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 100) + 1;
+        }
+        return array;
+    }
+    private static int multipleElementTask1(int variableTask1, double [] array) {
         int sum = 0;
         for(int i = 0 ; i < array.length ; i++){
             if (array[i] % variableTask1 == 0) {
@@ -101,97 +97,113 @@ public class OneDimensionalArrays {
         }
         return sum;
     }
-    private static int task2(int variableTask2){
-        int[] array = new int[]{1, 2, 3, 4, 5, 6, 7};
-        int sum =0;
-        for(int i = 0 ; i < array.length ; i++){
-            if (array[i] > variableTask2) {
-                array[i] = variableTask2;
-                sum ++;
+    private static int countingReplacementsTask2(double []  array, int z){
+        int count=0;
+        for (int i=0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 100);
+        }
+        System.out.print(Arrays.toString(array)+ "\n");
+
+        for (int i=0; i < array.length; i++) {
+            if (array[i] > z ) {
+                array[i]=z;
+                ++count;
             }
         }
-        return sum;
+        return count;
     }
-    private static String task3(){
-        int[] array = new int [] {-10,0,5,0,2,8,3,-1};
-        int positiveNumbers = 0, negativeNumbers = 0, zero = 0;
+    private static String countingPositiveNegativeZeroElementsTask3(double [] array){
+        int positiveNumbers = 0;
+        int negativeNumbers = 0;
+        int zeroNumbers = 0;
 
         for ( int i=0; i<array.length; i++){
-            if(array[i]>0  && array[i]!=0){
+            if(array[i]>0){
                 positiveNumbers ++;
         }
-        else if (array[i]<0 ){
+        if (array[i]<0 ){
                 negativeNumbers ++;
         }
-        else if (array[i]==0){
-                zero ++;
+        else zeroNumbers ++;
         }
-        }
-        return "Положительных чисел: "+positiveNumbers+"; Отрицательных: "+negativeNumbers+"; Равных нулю :"+zero;
+        return "Положительных чисел: "+positiveNumbers+"; Отрицательных: "+negativeNumbers+"; Равных нулю: "+zeroNumbers;
     }
-    private static double[] task4(double[] array){
-        if (array.length <= 1)
-            throw new IllegalArgumentException("nothing to swap");
-        int mini = 0;
-        int maxi = 0;
+    private static double[] swapMaxAndMinElementTask4(double[] array){
+        int minElementPosition = 0;
+        int maxElementPosition = 0;
         for (int i = 1; i < array.length; i++)
         {
-            mini = array[i] < array[mini] ? i : mini;
-            maxi = array[i] > array[maxi] ? i : maxi;
+            minElementPosition = array[i] < array[minElementPosition] ? i : minElementPosition;
+            maxElementPosition = array[i] > array[maxElementPosition] ? i : maxElementPosition;
         }
-
-        array[maxi] = array[maxi]+array[mini];
-        array[mini] = array[maxi]-array[mini];
-        array[maxi] = array[maxi]-array[mini];
+        //todo find out max and min position
+        array[maxElementPosition] = array[maxElementPosition]+array[minElementPosition];
+        array[minElementPosition] = array[maxElementPosition]-array[minElementPosition];
+        array[maxElementPosition] = array[maxElementPosition]-array[minElementPosition];
         return array;
     }
-    private static void task5(int variable){
-        int[] array = new int[]{20, 3, 40, 1, 6, 0, 10};
-        for (int i = 1; i < array.length; i++){
-            if (array[i]<variable) {
-                System.out.println(array[i]);
+    private static void findingNumberValueGreaterThanOrdinalTask5(double [] array) {
+        for(int i = 0; i < array.length; ++i) {
+            if(array[i] > i) {
+                System.out.print(array[i] + " ");
+
             }
         }
+        System.out.println(Arrays.toString(array));
     }
-    private static void task6(int n){
-        double[] array = new double[n];
+    private static void sumOfElementsWhoseOrdinalNumbersArePrimeNumbersTask6(double [] array){
+        //todo problem with prime numbers
         for (int i = 0; i < array.length; i++) {
             array[i] = (int) (Math.random() / 1 * 100) - 5;
         }
         System.out.print(Arrays.toString(array) + "\n");
 
         double sum = 0;
-        nextPrime:
-        for (int i = 2; i <= n; i++) {
+        for (int i = 2; i <= array.length; i++) {
+            boolean isPrime = i>2;
             for (int j = 2; j < i; j++) {
                 if (i % j == 0) {
-                    continue nextPrime;
+                    isPrime = false;
+                    break;
+                }if (isPrime) {
+                    System.out.println("Prime number: " + i);
+                    sum += array[i];
+                    //System.out.println("Prime number " + i + " element of array " + array[i]);
+                    break;
                 }
             }
-            sum += array[i];
-            System.out.println("Prime number " + i + " element of array " + array[i]);
+
+            //sum += array[i+1];
+            //System.out.println("Prime number " + i + " element of array " + array[i]);
         }
         System.out.println("sum is " + sum);
     }
-    private static void task7(){
+    private static void calculateFunctionTask7(){
         //todo in progress . . .
     }
-    private static void task8(int n, int[] firstArray){
+    private static int[] comparingElementsTask8(int n, int[] firstArray){
         int minVal = Integer.MAX_VALUE;
-        for (int tmpEl : firstArray) minVal = Math.min(minVal, tmpEl);
+        for (int element : firstArray) {
+            minVal = Math.min(minVal, element);
+        }
         int countMinElem = 0;
-        for (int tmpEl : firstArray)
-            if (tmpEl == minVal) countMinElem++;
+        for (int tmpEl : firstArray) {
+            if (tmpEl == minVal) {
+                countMinElem++;
+            }
+        }
 
         int[] secondArray = new int[n - countMinElem];
         int indexNewArray = 0;
-        for (int tmpEl : firstArray)
-            if (tmpEl != minVal) {
-                secondArray[indexNewArray++] = tmpEl;
-                System.out.print(tmpEl + ", ");
+        for (int element : firstArray) {
+            if (element != minVal) {
+                secondArray[indexNewArray++] = element;
+                System.out.print(element + ", ");
             }
+        }
+        return secondArray;
     }
-    private static int task9(int [] firstArray){
+    private static int mostCommonNumberTask9(int [] firstArray){
         int res=0;
         int[] counts=new int[firstArray.length];
         for (int i=0;i<firstArray.length;i++)
@@ -226,29 +238,5 @@ public class OneDimensionalArrays {
             System.out.print(array[i] + ";");
         }
     }
-    private static void task11(){
-        int[][] matrix = new int[10][20];
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = (int) (Math.random() * 15);
-                System.out.printf("%3d ", matrix[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println();
-        int count;
-        System.out.println("\nNumber of string, where digit 5 meets three or more times: ");
-        for (int i = 0; i < matrix.length; i++) {
-            count = 0;
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j] == 5) {
-                    count++;
-                }
-            }
-            if (count >= 3) {
-                System.out.printf("%d, ", i + 1);
-            }
-        }
-        System.out.println("\b\b");
-    }
+
 }

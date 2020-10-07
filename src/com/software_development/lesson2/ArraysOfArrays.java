@@ -1,12 +1,10 @@
 package com.software_development.lesson2;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArraysOfArrays {
     public static void main(String[] args) {
+
 
         //Task #1
         //2 random input variable and array introduced for the first task as an example
@@ -27,16 +25,16 @@ public class ArraysOfArrays {
 //        }
 //        task1(firstVariableTask1, secondVariableTask1, matrixA);
         //Task #2
-        //2 random input variable introduced for the third task as an example
-        Scanner scannerForTask2 = new Scanner(System.in);
-        System.out.println("Enter a size of array:");
-        int firstVariableTask2 = scannerForTask2.nextInt();
-        System.out.println("Enter natural number z ");
-        int secondVariableTask2 = scannerForTask2.nextInt();
-        task2(firstVariableTask2, secondVariableTask2);
+        //Display the elements that are on the diagonal.
+        System.out.println("Enter quality of strings");
+        Scanner scanner = new Scanner(System.in);
+        int strings = scanner.nextInt();
+        System.out.println("Enter quality of columns");
+        int columns = scanner.nextInt();
+        matrixOperationsTask2(createMatrix(strings, columns));
 
         //Task #3
-        //2 random input variable and random array introduced for the third task as an example
+        //Print the k row and p column of the matrix
         //int n = (int) (Math.random()*20);
         int[][] arrayForTask3 = new int[5][5];
         for (int i = 0; i < arrayForTask3.length; i++) {
@@ -48,38 +46,41 @@ public class ArraysOfArrays {
         int firstVariableTask3 = scannerForTask3.nextInt();
         System.out.println("P-й столбец: ");
         int secondVariableTask3 = scannerForTask3.nextInt();
-        task3(arrayForTask3, firstVariableTask3, secondVariableTask3);
+        matrixOperationsTask3(arrayForTask3, firstVariableTask3, secondVariableTask3);
 
         //Task #4
-        //1 random input variable introduced for the fourth task as an example
+        //Generate a square matrix of order n according to the given pattern (n is even);
         System.out.println("Enter the square matrix with even number n: ");
         Scanner scannerForTask4 = new Scanner(System.in);
         int variableTask4 = scannerForTask4.nextInt();
-        task4(variableTask4);
+        matrixOperationsTask4(variableTask4);
 
         //Task #5
-        //1 random input variable introduced for the task five as an example
+        //Generate a square matrix of order n according to the given pattern (n is even):
         System.out.println("Enter the square matrix with even number n: ");
         Scanner scannerForTask5 = new Scanner(System.in);
         int variableTask5 = scannerForTask5.nextInt();
-        task5(variableTask5);
+        matrixOperationsTask5(variableTask5);
 
         //Task #6
-        //1 random input variable introduced for the task six as an example
+        //Generate a square matrix of order n according to the given pattern (n is even):
         System.out.println("Enter the square matrix with even number n: ");
         Scanner scannerForTask6 = new Scanner(System.in);
         int variableForTask6 = scannerForTask6.nextInt();
-        task6(variableForTask6);
+        matrixOperationsTask6(variableForTask6);
 
         //Task #7
-        //1 random input variable introduced for the task seven as an example
+        //Generate a square matrix of order n according to the given rule:
         System.out.println("Enter the square matrix with even number n: ");
         Scanner scannerForTask7 = new Scanner(System.in);
         int variableForTask7 = scannerForTask7.nextInt();
-        task7(variableForTask7);
+        matrixOperationsTask7(variableForTask7);
 
         //Task #8
-        //4 random input variables introduced for the task eight as an example
+        //In the numerical matrix, swap two columns of any column,
+        //i.e. , put all the elements of one column at the corresponding
+        //positions of the other, and move the elements of the second to the first.
+        //Column numbers are entered by the user from the keyboard.
         System.out.println("Enter quality of strings");
         Scanner scannerForTask8 = new Scanner(System.in);
         int firstVariableTask8 = scannerForTask8.nextInt();
@@ -90,23 +91,104 @@ public class ArraysOfArrays {
         int thirdVariableTask8 = scannerForTask8.nextInt()- 1;
         System.out.println("Choose the number 2 of column that you want to change: ");
         int fourthVariableTask8 = scannerForTask8.nextInt() - 1;
-        task8(firstVariableTask8, secondVariableTask8, thirdVariableTask8, fourthVariableTask8);
+        matrixOperationsTask8(firstVariableTask8, secondVariableTask8, thirdVariableTask8, fourthVariableTask8, createMatrix(firstVariableTask8, secondVariableTask8));
 
         //Task #9
-        //4 random input variables introduced for the task nine as an example
+        //A matrix of non-negative numbers is given.
+        //Calculate the sum of the elements in each column.
+        //Determine which column contains the maximum amount.
         Scanner scannerForTask9 = new Scanner(System.in);
         System.out.println("Enter quality of strings");
         int firstVariableTask9 = scannerForTask9.nextInt();
         System.out.println("Enter quality of columns");
         int secondVariableTask9 = scannerForTask9.nextInt();
-        task9(firstVariableTask9, secondVariableTask9);
+        matrixOperationsTask9(firstVariableTask9, secondVariableTask9);
 
         //Task #10
-        //1 random input variables introduced for the task nine as an example
+        //A matrix of non-negative numbers is given.
+        //Calculate the sum of the elements in each column.
+        //Determine which column contains the maximum amount.
         System.out.println("Enter the square matrix with even number n: ");
         Scanner scannerForTask10 = new Scanner(System.in);
         int variableTask10 = scannerForTask10.nextInt();
-        task10(variableTask10);
+        matrixOperationsTask10(variableTask10);
+
+        //Task 11
+        //Fill the 10x20 matrix with random numbers from 0 to 15.
+        //Display the matrix itself and row numbers, in
+        //of which the number 5 occurs three or more times
+        matrixOperationsTask11();
+
+        //Task 12
+        //Sort matrix strings in ascending and descending order of element values.
+        Scanner scannerForTask12 = new Scanner(System.in);
+        System.out.println("Enter quality of strings");
+        int stringsTask12 = scannerForTask12.nextInt();
+        System.out.println("Enter quality of columns");
+        int columnsTask12 = scannerForTask12.nextInt();
+        matrixOperationsTask12(createMatrix(stringsTask12, columnsTask12));
+
+        //Task 13
+        //Sort matrix columns in ascending and descending order of element values.
+        Scanner scannerForTask13 = new Scanner(System.in);
+        System.out.println("Enter quality of strings");
+        int stringsTask13 = scannerForTask13.nextInt();
+        System.out.println("Enter quality of columns");
+        int columnsTask13 = scannerForTask13.nextInt();
+        matrixOperationsTask13(createMatrix(stringsTask13, columnsTask13));
+
+        //Task 14
+        //Generate a random matrix m x n consisting of zeros and ones,
+        //with a number in each column units equals column number.
+        Scanner scannerForTask14 = new Scanner(System.in);
+        System.out.println("Enter quality of strings");
+        int stringsTask14 = scannerForTask14.nextInt();
+        System.out.println("Enter quality of columns equals quality of strings ");
+        int columnsTask14 = scannerForTask14.nextInt();
+        matrixOperationsTask14(stringsTask14, columnsTask14);
+
+        //Task 15
+        //Find the largest element of the matrix and replace all odd elements with it
+        Scanner scannerForTask15 = new Scanner(System.in);
+        System.out.println("Enter quantity of strings");
+        int stringsTask15 = scannerForTask15.nextInt();
+        System.out.println("Enter quantity of columns");
+        int columnsTask15 = scannerForTask15.nextInt();
+        matrixOperationsTask15(createMatrix(stringsTask15, columnsTask15));
+
+        //Task 16
+        //A magic square of order n is a square matrix of size n x n, composed of numbers 1, 2, 3,
+        //..., n 2 so that the sums over each column, each row, and each of the two large diagonals are equal between
+        //each other. Construct such a square.
+        Scanner scannerForTask16 = new Scanner(System.in);
+        System.out.println("Enter the odd dimension of the matrix: ");
+        int dimension = scannerForTask16.nextInt();
+
+        if(dimension%2!=0) {
+            System.out.println("\"Magic square\" \n\nodd number of elements:");
+            oddMagicSquare(dimension);
+        }
+
+
+        else  {
+            System.out.println("For matrix with " + dimension+" dimension this program" +
+                    "\ncan't make\n \"Magic square\". " +
+                    "\n\nTry to restart the program using a odd dimension\n.");
+        }
+
+    }
+    private static int [] [] createMatrix(int n, int m){
+        int[][] matrix = new int[n][m];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                int positiveNegative = Math.random() < 0.5 ? -1 : 1;
+                matrix[i][j] = (int) (Math.random() * 100) * positiveNegative;
+                System.out.printf("%3d ", matrix[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println();
+        return matrix;
     }
     private static void task1(int n, int m, int[][] matrixA){
         //TODO: Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 6
@@ -121,23 +203,28 @@ public class ArraysOfArrays {
             System.out.println();
         }
     }
-    private static void task2(int arraySize, int z){
-        int[] array = new int[arraySize];
-        int count=0;
-        for (int i=0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * 100);
-        }
-        System.out.print(Arrays.toString(array)+ "\n");
-
-        for (int i=0; i < array.length; i++) {
-            if (array[i] > z ) {
-                array[i]=z;
-                ++count;
+    private static void matrixOperationsTask2(int [] [] matrix){
+        System.out.println("Elements of the main diagonal:");
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (i == j) {
+                    System.out.printf("%3d  ", matrix[i][j]);
+                }
             }
+            System.out.println();
         }
-        System.out.println(Arrays.toString(array)+ "\n" + "The amount of changing is " + count);
+        System.out.println();
+        System.out.println("Side diagonal elements:");
+        for (int i = matrix.length-1; i >= 0; i--) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (i + j == matrix.length-1) {
+                    System.out.printf("%3d  ", matrix[i][j]);
+                }
+            }
+            System.out.println();
+        }
     }
-    private static void task3(int [] [] arrayForTask3, int firstVariableTask3, int secondVariableTask3){
+    private static void matrixOperationsTask3(int [] [] arrayForTask3, int firstVariableTask3, int secondVariableTask3){
         firstVariableTask3--; secondVariableTask3--;
         System.out.println("k row: ");
         for (int i = 0; i < 5; ++i)
@@ -153,7 +240,7 @@ public class ArraysOfArrays {
             System.out.println();
         }
     }
-    private static void task4(int n){
+    private static void matrixOperationsTask4(int n){
 
         int[][] matrix = new int[n][n];
         int count = 0;
@@ -179,7 +266,7 @@ public class ArraysOfArrays {
             System.out.println("Number n is odd!");
         }
     }
-    private static void task5(int n){
+    private static void matrixOperationsTask5(int n){
         int[][] matrix = new int[n][n];
         if (n % 2 == 0) {
             for (int i = 0; i < matrix.length; i++) {
@@ -203,7 +290,7 @@ public class ArraysOfArrays {
             System.out.println("Number n is odd!");
         }
     }
-    private static void task6(int n){
+    private static void matrixOperationsTask6(int n){
         int[][] matrix = new int[n][n];
 
         if (n % 2 == 0) {
@@ -222,7 +309,7 @@ public class ArraysOfArrays {
             System.out.println(" Number N is odd ");
         }
     }
-    private static void task7(int n){
+    private static void matrixOperationsTask7(int n){
         double [][] matrix = new double[n][n];
         int count;
 
@@ -244,17 +331,8 @@ public class ArraysOfArrays {
         }
         System.out.println("Amount of positive numbers:" + count);
     }
-    private static void task8(int n, int m, int s, int z){
-        int[][] matrix = new int[n][m];
+    private static void matrixOperationsTask8(int n, int m, int s, int z, int [] [] matrix){
         int swap;
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                int positiveNegative = Math.random() < 0.5 ? -1 : 1;
-                matrix[i][j] = (int) (Math.random() * 100) * positiveNegative;
-                System.out.printf("%3d ", matrix[i][j]);
-            }
-            System.out.println();
-        }
         for (int i = 0; i < matrix.length; i++) {
             swap = matrix[i][s];
             matrix[i][s] = matrix[i][z];
@@ -268,7 +346,7 @@ public class ArraysOfArrays {
             System.out.println();
         }
     }
-    private static void task9(int n, int m){
+    private static void matrixOperationsTask9(int n, int m){
         int[][] matrix = new int[n][m];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
@@ -297,7 +375,7 @@ public class ArraysOfArrays {
         System.out.printf("\n\nColumn №%d consists max sum.", maxColumn);
         System.out.println();
     }
-    private static void task10(int n){
+    private static void matrixOperationsTask10(int n){
         int[][] arrayForTask10 = new int[n][n];
         for (int i=0; i<n; i++) {
             for (int j=0; j<n; j++) {
@@ -311,4 +389,219 @@ public class ArraysOfArrays {
                 System.out.printf("\n"+"%3d ", arrayForTask10[i][i]);
             }
     }
+    private static void matrixOperationsTask11 (){
+        int[][] matrix = new int[10][20];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = (int) (Math.random() * 15);
+                System.out.printf("%3d ", matrix[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println();
+        int count;
+        System.out.println("\nNumber of string, where digit 5 meets three or more times: ");
+        for (int i = 0; i < matrix.length; i++) {
+            count = 0;
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] == 5) {
+                    count++;
+                }
+            }
+            if (count >= 3) {
+                System.out.printf("%d, ", i + 1);
+            }
+        }
+        System.out.println("\b\b");
+    }
+    private static void matrixOperationsTask12(int [] [] matrix){
+        boolean isSorted;
+        int swap;
+        System.out.println("Sorting by ascending ");
+        for (int i = 0; i < matrix.length; i++) {
+            isSorted = false;
+            while (!isSorted) {
+                isSorted = true;
+                for (int j = 0; j < matrix[i].length - 1; j++) {
+                    if (matrix[i][j] > matrix[i][j + 1]) {
+                        isSorted = false;
+                        swap = matrix[i][j];
+                        matrix[i][j] = matrix[i][j + 1];
+                        matrix[i][j + 1] = swap;
+                    }
+                }
+            }
+        }
+        for (int[] ints : matrix) {
+            for (int anInt : ints) {
+                System.out.printf("%3d ", anInt);
+            }
+            System.out.println();
+        }
+        System.out.println("\nSorting by descending  ");
+        for (int i = 0; i < matrix.length; i++) {
+            isSorted = false;
+            while (!isSorted) {
+                isSorted = true;
+                for (int j = 0; j < matrix[i].length - 1; j++) {
+                    if (matrix[i][j] < matrix[i][j + 1]) {
+                        isSorted = false;
+                        swap = matrix[i][j];
+                        matrix[i][j] = matrix[i][j + 1];
+                        matrix[i][j + 1] = swap;
+                    }
+                }
+            }
+        }
+        for (int[] ints : matrix) {
+            for (int anInt : ints) {
+                System.out.printf("%3d ", anInt);
+            }
+            System.out.println();
+        }
+    }
+    private static void matrixOperationsTask13(int [] [] matrix){
+            boolean isSorted;
+            int swap;
+            System.out.println("\nSorting by ascending ");
+            for (int j = 0; j < matrix[0].length; j++) {
+                isSorted = false;
+                while (!isSorted) {
+                    isSorted = true;
+                    for (int i = 0; i < matrix.length - 1; i++) {
+                        if (matrix[i][j] > matrix[i + 1][j]) {
+                            isSorted = false;
+                            swap = matrix[i][j];
+                            matrix[i][j] = matrix[i + 1][j];
+                            matrix[i + 1][j] = swap;
+                        }
+                    }
+                }
+            }
+            for (int[] ints : matrix) {
+                for (int anInt : ints) {
+                    System.out.printf("%3d ", anInt);
+                }
+                System.out.println();
+            }
+            System.out.println("\nSorting by descending  ");
+            for (int j = 0; j < matrix[0].length; j++) {
+                isSorted = false;
+                while (!isSorted) {
+                    isSorted = true;
+                    for (int i = 0; i < matrix.length - 1; i++) {
+                        if (matrix[i][j] < matrix[i + 1][j]) {
+                            isSorted = false;
+                            swap = matrix[i][j];
+                            matrix[i][j] = matrix[i + 1][j];
+                            matrix[i + 1][j] = swap;
+                        }
+                    }
+                }
+            }
+            for (int[] ints : matrix) {
+                for (int anInt : ints) {
+                    System.out.printf("%3d ", anInt);
+                }
+                System.out.println();
+            }
+    }
+    private static void matrixOperationsTask14(int n, int m){
+        int[][] matrix = new int[n][m];
+
+        if(m == n) {
+            int count;
+            for (int i = 0; i < matrix.length; i++) {
+                count = i + 1;
+                for (int j = 0; j < matrix[i].length; j++) {
+                    if (count - 1 > 0) {
+                        matrix[i][j] = 0;
+                        count--;
+                    } else {
+                        matrix[i][j] = 1;
+                    }
+                    System.out.printf("%3d ", matrix[i][j]);
+                }
+                System.out.println();
+            }
+        }else System.out.println("If you want to get correct answer please enter m = n! ");
+    }
+    private static void matrixOperationsTask15(int [] [] matrix){
+        int max = Integer.MIN_VALUE;
+        for (int [] array : matrix) {
+            for (int element : array) {
+                if (element > max) {
+                    max = element;
+                }
+            }
+        }
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] % 2 != 0) {
+                    matrix[i][j] = max;
+                }
+            }
+        }
+        for (int[] array : matrix) {
+            for (int element : array) {
+                System.out.printf("%3d ", element);
+            }
+            System.out.println();
+        }
+    }
+
+    //oddMatrixSquare - данный метод используется для построения "Магического квадрата" из нечетного колличества элементов
+    //алгоритм использующийся в данном методе называется "Сиамским методом"
+    public static void oddMagicSquare(int n) {
+        int[][] matrix = new int[n][n];
+        int x = n/2;
+        int y = matrix.length-1;
+        int count = 1;
+
+        while (true){
+            matrix[(matrix.length-1)-y][x] = count;
+            count++;
+
+            if(x==matrix.length-1) x=-1;
+            if(y>=matrix.length-1) y=-1;
+            y++;
+            x++;
+            if (matrix[matrix.length-1-y][x] != 0) y--;
+
+            int count1=0;
+            for (int[] array:matrix) {
+                for (int z :array) {
+                    if(z == 0) count1++;
+                }
+            }
+            if (count1==0) break;
+        }
+
+        printMatrix(matrix);
+    }
+    //В метде evenMatrixSquare нужно использовать отсортированную матрицу,
+    //именно этим занимается метод standardMatrixFilling (можете вызвать его с любой размерность и посмотреть что будет)
+    public static int[][] standardMatrixFilling(int n){
+        int[][] matrix = new int[n][n];
+        int count = 1;
+
+        for (int i = 0; i > matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                matrix[i][j] = count;
+                count++;
+            }
+        }
+        return  matrix;
+    }
+    //Метод printMatrix отвечает за вывод матрицы на экран
+    public static void printMatrix (int[][] matrix) {
+        for (int[] array : matrix) {
+            for (int x : array) {
+                System.out.print(x + "\t");
+            }
+            System.out.println();
+        }
+        System.out.println("");
+    }
+
 }
