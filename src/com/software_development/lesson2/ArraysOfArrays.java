@@ -163,19 +163,15 @@ public class ArraysOfArrays {
         Scanner scannerForTask16 = new Scanner(System.in);
         System.out.println("Enter the odd dimension of the matrix: ");
         int dimension = scannerForTask16.nextInt();
-
         if(dimension%2!=0) {
             System.out.println("\"Magic square\" \n\nodd number of elements:");
             oddMagicSquare(dimension);
         }
-
-
         else  {
             System.out.println("For matrix with " + dimension+" dimension this program" +
                     "\ncan't make\n \"Magic square\". " +
                     "\n\nTry to restart the program using a odd dimension\n.");
         }
-
     }
     private static int [] [] createMatrix(int n, int m){
         int[][] matrix = new int[n][m];
@@ -549,9 +545,6 @@ public class ArraysOfArrays {
             System.out.println();
         }
     }
-
-    //oddMatrixSquare - данный метод используется для построения "Магического квадрата" из нечетного колличества элементов
-    //алгоритм использующийся в данном методе называется "Сиамским методом"
     public static void oddMagicSquare(int n) {
         int[][] matrix = new int[n][n];
         int x = n/2;
@@ -579,8 +572,6 @@ public class ArraysOfArrays {
 
         printMatrix(matrix);
     }
-    //В метде evenMatrixSquare нужно использовать отсортированную матрицу,
-    //именно этим занимается метод standardMatrixFilling (можете вызвать его с любой размерность и посмотреть что будет)
     public static int[][] standardMatrixFilling(int n){
         int[][] matrix = new int[n][n];
         int count = 1;
@@ -593,7 +584,6 @@ public class ArraysOfArrays {
         }
         return  matrix;
     }
-    //Метод printMatrix отвечает за вывод матрицы на экран
     public static void printMatrix (int[][] matrix) {
         for (int[] array : matrix) {
             for (int x : array) {

@@ -6,7 +6,20 @@ import java.util.Scanner;
 
 public class OneDimensionalArrays {
     public static void main(String[] args) {
-        sumOfElementsWhoseOrdinalNumbersArePrimeNumbersTask6(randomArray());
+       //sumOfElementsWhoseOrdinalNumbersArePrimeNumbersTask6(randomArray());
+
+        int variableTask8 = (int) (Math.random()*20);
+        Random rand = new Random();
+        int[] firstArray = new int[variableTask8];
+
+        for (int i = 0; i < firstArray.length; i++) {
+            firstArray[i] = rand.nextInt(20) - 10;
+            System.out.print(firstArray[i] + ", ");
+        }
+        System.out.println();
+        int [] resultTask8 = comparingElementsTask8(firstArray);
+        System.out.println(Arrays.toString(resultTask8));
+
         //Task #1
         //Find the sum of elements that are multiples of a given K
         Scanner inputTask1 = new Scanner(System.in);
@@ -45,17 +58,7 @@ public class OneDimensionalArrays {
 
         //Task #8
         //Throw out members equal min( a1, a2, ..., an )
-        int variableTask8 = (int) (Math.random()*20);
-        Random rand = new Random();
-        int[] firstArray = new int[variableTask8];
 
-        for (int i = 0; i < firstArray.length; i++) {
-            firstArray[i] = rand.nextInt(20) - 10;
-            System.out.print(firstArray[i] + ", ");
-        }
-        System.out.println();
-        int [] resultTask8 = comparingElementsTask8(variableTask8, firstArray);
-        System.out.println(Arrays.toString(resultTask8));
 
         //Task #9
         //Find the most common number
@@ -69,8 +72,8 @@ public class OneDimensionalArrays {
         int variableForTask10 = scannerForTask10.nextInt();
         int[] array = new int[variableForTask10];
         for (int i = 0; i < array.length; i++) {
-            int negativePositive = Math.random() < 0.5 ? -1 : 1;//determinate negative or positive values
-            array[i] = (int) (Math.random() * 100) * negativePositive; //filling
+            int negativePositive = Math.random() < 0.5 ? -1 : 1;
+            array[i] = (int) (Math.random() * 100) * negativePositive;
             System.out.print(array[i] + ";");
         }
         System.out.println();
@@ -88,10 +91,10 @@ public class OneDimensionalArrays {
         }
         return array;
     }
-    private static int multipleElementTask1(int variableTask1, double [] array) {
+    private static int multipleElementTask1(int k, double [] array) {
         int sum = 0;
         for(int i = 0 ; i < array.length ; i++){
-            if (array[i] % variableTask1 == 0) {
+            if (array[i] % k == 0) {
                 sum += array[i];
             }
         }
@@ -126,7 +129,7 @@ public class OneDimensionalArrays {
         }
         else zeroNumbers ++;
         }
-        return "Положительных чисел: "+positiveNumbers+"; Отрицательных: "+negativeNumbers+"; Равных нулю: "+zeroNumbers;
+        return "Positive numbers: "+positiveNumbers+"; Negative: "+negativeNumbers+"; Zeros: "+zeroNumbers;
     }
     private static double[] swapMaxAndMinElementTask4(double[] array){
         int minElementPosition = 0;
@@ -181,19 +184,20 @@ public class OneDimensionalArrays {
     private static void calculateFunctionTask7(){
         //todo in progress . . .
     }
-    private static int[] comparingElementsTask8(int n, int[] firstArray){
+    private static int[] comparingElementsTask8(int[] firstArray){
+        int n = firstArray.length;
         int minVal = Integer.MAX_VALUE;
         for (int element : firstArray) {
             minVal = Math.min(minVal, element);
         }
         int countMinElem = 0;
         for (int tmpEl : firstArray) {
-            if (tmpEl == minVal) {
+            if (tmpEl != minVal) {
                 countMinElem++;
             }
         }
 
-        int[] secondArray = new int[n - countMinElem];
+        int[] secondArray = new int[n];
         int indexNewArray = 0;
         for (int element : firstArray) {
             if (element != minVal) {
