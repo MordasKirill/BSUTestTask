@@ -12,7 +12,7 @@ public class OneDimensionalArraysAndSorts {
         int secondArrayLength = scannerForTask1.nextInt();
         System.out.println("\n\nChoose number from first array: ");
         int k = scannerForTask1.nextInt();
-        task1(firstArrayLength, secondArrayLength, k);
+        unionOfArraysTask1(firstArrayLength, secondArrayLength, k);
 
         //Task 2
         Scanner scannerFotTask2 = new Scanner(System.in);
@@ -20,19 +20,19 @@ public class OneDimensionalArraysAndSorts {
         int firstSequence = scannerFotTask2.nextInt();
         System.out.println("\n\nEnter quantity elements of second sequence: ");
         int secondSequence = scannerFotTask2.nextInt();
-        task2(firstSequence, secondSequence);
+        nonDecreasingSequenceTask2(firstSequence, secondSequence);
 
         //Task 3
         Scanner scannerForTask3 = new Scanner(System.in);
         System.out.println("Enter quantity elements of sequence: ");
         int sequenceLengthTask3 = scannerForTask3.nextInt();
-        task3(sequenceLengthTask3);
+        selectionSortTask3(sequenceLengthTask3);
 
         //Task 4
         Scanner scannerForTask4 = new Scanner(System.in);
         System.out.println("Enter quantity elements of array: ");
         int arrayLengthTask4 = scannerForTask4.nextInt();
-        task4(arrayLengthTask4);
+        sortingExchangesTask4(arrayLengthTask4);
 
         //Task 5
         Scanner scannerForTask5 = new Scanner(System.in);
@@ -50,7 +50,7 @@ public class OneDimensionalArraysAndSorts {
         System.out.println("Enter quantity of the sequence. ");
         int n = scannerForTask6.nextInt();
         System.out.println("\nResult after sorting: ");
-        sortingShell(randomArray(n));
+        sortingShellTask6(randomArray(n));
     }
 
     private static int [] randomArray(int n){
@@ -63,7 +63,7 @@ public class OneDimensionalArraysAndSorts {
         }
         return array;
     }
-    private static void task1(int firstArrayLength, int secondArrayLength, int k){
+    private static void unionOfArraysTask1(int firstArrayLength, int secondArrayLength, int k){
         //todo in progress, not done yet
         int [] firstArray = new int [firstArrayLength];
         for (int i = 0; i < firstArray.length; i++) {
@@ -85,7 +85,7 @@ public class OneDimensionalArraysAndSorts {
             }
         }
     }
-    private static void task2(int n, int m){
+    private static void nonDecreasingSequenceTask2(int n, int m){
         int[] firstArray = new int[n + 1];
         for (int i = 1; i < firstArray.length; i++) {
             firstArray[i] = firstArray[i - 1] + 1;
@@ -118,7 +118,7 @@ public class OneDimensionalArraysAndSorts {
             System.out.print(value+ ", ");
         }
     }
-    private static void task3(int n){
+    private static void selectionSortTask3(int n){
         int[] array = new int[n + 1];
         for (int i = 1; i < array.length; i++) {
             array[i] = array[i - 1] + 3;
@@ -141,7 +141,7 @@ public class OneDimensionalArraysAndSorts {
         for (int value : array)
             System.out.print(value + ", ");
     }
-    private static void task4(int n){
+    private static void sortingExchangesTask4(int n){
         int[] array = new int[n];
         for (int i = 0; i < array.length; i++) {
             array[i] = (int) (Math.random() * 100) - 50;
@@ -196,7 +196,7 @@ public class OneDimensionalArraysAndSorts {
         }
         return j;
     }
-        private static void sortingShell(int[] array){
+        private static void sortingShellTask6(int[] array){
         //todo bugFix needed, in progress
             int temp;
             int i = 1;
