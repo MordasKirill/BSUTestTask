@@ -1,9 +1,11 @@
 package com.software_development.lesson2;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class OneDimensionalArraysAndSorts {
     public static void main(String[] args) {
+
         //Task 1
         Scanner scannerForTask1 = new Scanner(System.in);
         System.out.println("Enter quantity elements of first array: ");
@@ -37,20 +39,29 @@ public class OneDimensionalArraysAndSorts {
         //Task 5
         Scanner scannerForTask5 = new Scanner(System.in);
         System.out.println("Enter quantity of the sequence. ");
-        int quantityOfSequence = scannerForTask5.nextInt();
+        int n = scannerForTask5.nextInt();
+        int[] array = new int[n];
 
-        sortingByInsert(randomArray(quantityOfSequence));
+        for (int i = 0; i < array.length; i++) {
+            int positiveNegative = Math.random() < 0.5 ? -1 : 1;
+            array[i] = (int) (Math.random() * 100) * positiveNegative;
+            System.out.print(array[i] + ", ");
+        }
+
+        sortingByInsert(array);
+
         System.out.println("\nAfter sorting: ");
-        for (int value : randomArray(quantityOfSequence)) {
+        for (int value : array) {
             System.out.print(value + ", ");
         }
 
         //Task 6
         Scanner scannerForTask6 = new Scanner(System.in);
         System.out.println("Enter quantity of the sequence. ");
-        int n = scannerForTask6.nextInt();
+        int n2 = scannerForTask6.nextInt();
         System.out.println("\nResult after sorting: ");
-        sortingShellTask6(randomArray(n));
+        sortingShellTask6(randomArray(n2));
+
     }
 
     private static int [] randomArray(int n){
@@ -70,11 +81,13 @@ public class OneDimensionalArraysAndSorts {
             firstArray[i]= (int) (Math.random()*100)-50;
             System.out.print(firstArray[i] + ", ");
         }
+        System.out.println(Arrays.toString(firstArray));
         int [] secondArray = new int [secondArrayLength];
         for (int i = 0; i < secondArray.length; i++) {
             secondArray[i]= (int) (Math.random()*100)-50;
             System.out.print(secondArray[i] + ", ");
         }
+        System.out.println(Arrays.toString(secondArray));
         System.out.println("\n\nResult of joining two arrays : ");
         for (int i = 0; i < firstArray.length; i++) {
             System.out.print(firstArray[i] + ", ");
@@ -164,7 +177,6 @@ public class OneDimensionalArraysAndSorts {
         }
     }
     private static void sortingByInsert(int[] array) {
-        //todo bugFix needed, in progress
         int temp;
         for (int i = 1; i < array.length - 1; i++) {
             if (array[i] > array[i + 1]) {
@@ -179,7 +191,6 @@ public class OneDimensionalArraysAndSorts {
     }
 
     private static int binarySearch(int[] array, int lastIndex, int element) {
-        //todo bugFix needed, in progress
         int j = lastIndex;
         int firstIndex = 0;
         while (firstIndex <= lastIndex) {
@@ -197,7 +208,6 @@ public class OneDimensionalArraysAndSorts {
         return j;
     }
         private static void sortingShellTask6(int[] array){
-        //todo bugFix needed, in progress
             int temp;
             int i = 1;
             while (i < array.length) {
