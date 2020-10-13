@@ -7,6 +7,7 @@ public class OneDimensionalArraysAndSorts {
     public static void main(String[] args) {
 
         //Task 1
+        //Union of arrays task
         Scanner scannerForTask1 = new Scanner(System.in);
         System.out.println("Enter quantity elements of first array: ");
         int firstArrayLength = scannerForTask1.nextInt();
@@ -17,6 +18,7 @@ public class OneDimensionalArraysAndSorts {
         unionOfArraysTask1(firstArrayLength, secondArrayLength, k);
 
         //Task 2
+        //Form a new non-decreasing sequence of numbers task
         Scanner scannerFotTask2 = new Scanner(System.in);
         System.out.println("Enter quantity elements of first sequence: ");
         int firstSequence = scannerFotTask2.nextInt();
@@ -25,22 +27,25 @@ public class OneDimensionalArraysAndSorts {
         nonDecreasingSequenceTask2(firstSequence, secondSequence);
 
         //Task 3
+        //Selection sort task
         Scanner scannerForTask3 = new Scanner(System.in);
         System.out.println("Enter quantity elements of sequence: ");
         int sequenceLengthTask3 = scannerForTask3.nextInt();
         selectionSortTask3(sequenceLengthTask3);
 
         //Task 4
+        //Sorting by exchanges task
         Scanner scannerForTask4 = new Scanner(System.in);
         System.out.println("Enter quantity elements of array: ");
         int arrayLengthTask4 = scannerForTask4.nextInt();
         sortingExchangesTask4(arrayLengthTask4);
 
         //Task 5
+        //Sort by inserts task
         Scanner scannerForTask5 = new Scanner(System.in);
         System.out.println("Enter quantity of the sequence. ");
-        int n = scannerForTask5.nextInt();
-        int[] array = new int[n];
+        int arrayLengthTask5 = scannerForTask5.nextInt();
+        int[] array = new int[arrayLengthTask5];
 
         for (int i = 0; i < array.length; i++) {
             int positiveNegative = Math.random() < 0.5 ? -1 : 1;
@@ -56,11 +61,17 @@ public class OneDimensionalArraysAndSorts {
         }
 
         //Task 6
+        //Shell sorting task
         Scanner scannerForTask6 = new Scanner(System.in);
         System.out.println("Enter quantity of the sequence. ");
         int n2 = scannerForTask6.nextInt();
         System.out.println("\nResult after sorting: ");
         sortingShellTask6(randomArray(n2));
+
+        //Task 8
+        //Make a program
+        //which brings fractions to a common denominator and orders them in ascending order
+        calculateFractionsTask8();
 
     }
 
@@ -226,7 +237,61 @@ public class OneDimensionalArraysAndSorts {
                 System.out.print(value + ", ");
             }
     }
-    private static void task7(){
+    private static void calculateFractionsTask8(){
+        Fraction [] array = {new Fraction(1, 3), new Fraction(2, 4),
+                new Fraction(7, 12), new Fraction(5, 12),
+                new Fraction(12, 3), new Fraction(17, 24),
+                new Fraction(5, 6), new Fraction(13, 3)};
 
+        setCommonDenominator(array);
+        sortFractionArray(array);
+        for (Fraction element : array) {
+            System.out.print(element + ", ");
+        }
+        System.out.print("\b\b");
+    }
+    private static void setCommonDenominator (Fraction [] array) {
+        boolean isCommon = false;
+        int commonDenominator = 0;
+        while (!isCommon) {
+            isCommon = true;
+            commonDenominator++;
+            for (Fraction element : array) {
+                if (commonDenominator % element.denominator != 0) {
+                    isCommon = false;
+                    break;
+                }
+            }
+        }
+
+        for (Fraction element : array) {
+            element.numerator *= (double) commonDenominator / element.denominator;
+            element.denominator = commonDenominator;
+        }
+    }
+    private static void sortFractionArray (Fraction [] array) {
+        for (int i = array.length - 1; i > 0 ; i--) {
+            for (int j = 0; j < i; j++) {
+                if (array[j].numerator > array[j + 1].numerator) {
+                    Fraction temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    static class Fraction {
+        int numerator;
+        int denominator;
+        Fraction(int numerator, int denom) {
+            this.numerator = numerator;
+            this.denominator = denom;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("%d/%d", numerator, denominator);
+        }
     }
 }
