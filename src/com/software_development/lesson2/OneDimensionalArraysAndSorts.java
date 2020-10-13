@@ -284,9 +284,9 @@ public class OneDimensionalArraysAndSorts {
     static class Fraction {
         int numerator;
         int denominator;
-        Fraction(int numerator, int denom) {
+        Fraction(int numerator, int denominator) {
             this.numerator = numerator;
-            this.denominator = denom;
+            this.denominator = denominator;
         }
 
         @Override

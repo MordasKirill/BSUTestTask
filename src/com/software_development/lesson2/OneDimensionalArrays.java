@@ -6,20 +6,6 @@ import java.util.Scanner;
 
 public class OneDimensionalArrays {
     public static void main(String[] args) {
-       //sumOfElementsWhoseOrdinalNumbersArePrimeNumbersTask6(randomArray());
-
-        int variableTask8 = (int) (Math.random()*20);
-        Random rand = new Random();
-        int[] firstArray = new int[variableTask8];
-
-        for (int i = 0; i < firstArray.length; i++) {
-            firstArray[i] = rand.nextInt(20) - 10;
-            System.out.print(firstArray[i] + ", ");
-        }
-        System.out.println();
-        int [] resultTask8 = comparingElementsTask8(firstArray);
-        System.out.println(Arrays.toString(resultTask8));
-
         //Task #1
         //Find the sum of elements that are multiples of a given K
         Scanner inputTask1 = new Scanner(System.in);
@@ -58,7 +44,18 @@ public class OneDimensionalArrays {
 
         //Task #8
         //Throw out members equal min( a1, a2, ..., an )
+        int variableTask8 = (int) (Math.random()*20);
+        Random rand = new Random();
+        int[] firstArray = new int[variableTask8];
 
+        for (int i = 0; i < firstArray.length; i++) {
+            firstArray[i] = rand.nextInt(20) - 10;
+            System.out.print(firstArray[i] + ", ");
+        }
+        System.out.println();
+        System.out.println("Result of task 8: ");
+        int [] resultOfTask8 = comparingElementsTask8(firstArray);
+        System.out.println(resultOfTask8);
 
         //Task #9
         //Find the most common number
@@ -155,31 +152,26 @@ public class OneDimensionalArrays {
         System.out.println(Arrays.toString(array));
     }
     private static void sumOfElementsWhoseOrdinalNumbersArePrimeNumbersTask6(double [] array){
-        //todo problem with prime numbers
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() / 1 * 100) - 5;
-        }
-        System.out.print(Arrays.toString(array) + "\n");
-
+        System.out.println(Arrays.toString(array));
         double sum = 0;
-        for (int i = 2; i <= array.length; i++) {
-            boolean isPrime = i>2;
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) {
-                    isPrime = false;
-                    break;
-                }if (isPrime) {
-                    System.out.println("Prime number: " + i);
-                    sum += array[i];
-                    //System.out.println("Prime number " + i + " element of array " + array[i]);
-                    break;
-                }
+        for (int i = 0; i < array.length; i++) {
+            if (isPrime(i)) {
+                System.out.println("Ordinal number of " + array[i] + " is prime");
+                sum+=array[i];
             }
-
-            //sum += array[i+1];
-            //System.out.println("Prime number " + i + " element of array " + array[i]);
         }
-        System.out.println("sum is " + sum);
+        System.out.println("Summ: " + sum);
+    }
+    public static boolean isPrime(int x) {
+        if (x < 2) return false;
+        int temp;
+        for (int i = 2; i <= x / 2; i++) {
+            temp = x % i;
+            if (temp == 0) {
+                return false;
+            }
+        }
+        return true;
     }
     private static void calculateFunctionTask7(){
         //todo in progress . . .
