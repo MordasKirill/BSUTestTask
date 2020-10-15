@@ -131,9 +131,9 @@ public class OneDimensionalArraysAndSorts {
         for (int i = joinArray.length - 1; i > 0 ; i--) {
             for (int j = 0; j < i; j++) {
                 if (joinArray[j] > joinArray[j + 1]) {
-                    int temp = joinArray[j];
+                    int element = joinArray[j];
                     joinArray[j] = joinArray[j + 1];
-                    joinArray[j + 1] = temp;
+                    joinArray[j + 1] = element;
                 }
             }
         }
@@ -150,7 +150,7 @@ public class OneDimensionalArraysAndSorts {
         }
         System.out.println();
         int max;
-        int temp;
+        int element;
         for (int i = 0; i < array.length; i++) {
             max = i;
             for (int j = i; j < array.length; j++) {
@@ -158,9 +158,9 @@ public class OneDimensionalArraysAndSorts {
                     max = j;
                 }
             }
-            temp = array[i];
+            element = array[i];
             array[i] = array[max];
-            array[max] = temp;
+            array[max] = element;
         }
         for (int value : array)
             System.out.print(value + ", ");
@@ -188,15 +188,15 @@ public class OneDimensionalArraysAndSorts {
         }
     }
     private static void sortingByInsert(int[] array) {
-        int temp;
+        int element;
         for (int i = 1; i < array.length - 1; i++) {
             if (array[i] > array[i + 1]) {
-                temp = array[i + 1];
+                element = array[i + 1];
                 int j = binarySearch(array, i, array[i + 1]);
                 for (int k = i + 1; k > j; k--) {
                     array[k] = array[k - 1];
                 }
-                array[j] = temp;
+                array[j] = element;
             }
         }
     }
@@ -219,13 +219,13 @@ public class OneDimensionalArraysAndSorts {
         return j;
     }
         private static void sortingShellTask6(int[] array){
-            int temp;
+            int element;
             int i = 1;
             while (i < array.length) {
                 if (array[i - 1] > array[i]) {
-                    temp = array[i - 1];
+                    element = array[i - 1];
                     array[i - 1] = array[i];
-                    array[i] = temp;
+                    array[i] = element;
                     if (i - 1 > 0) {
                         i--;
                     }
@@ -273,9 +273,9 @@ public class OneDimensionalArraysAndSorts {
         for (int i = array.length - 1; i > 0 ; i--) {
             for (int j = 0; j < i; j++) {
                 if (array[j].numerator > array[j + 1].numerator) {
-                    Fraction temp = array[j];
+                    Fraction element = array[j];
                     array[j] = array[j + 1];
-                    array[j + 1] = temp;
+                    array[j + 1] = element;
                 }
             }
         }

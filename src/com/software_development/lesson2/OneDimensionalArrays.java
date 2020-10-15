@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class OneDimensionalArrays {
     public static void main(String[] args) {
+
         //Task #1
         //Find the sum of elements that are multiples of a given K
         Scanner inputTask1 = new Scanner(System.in);
@@ -42,6 +43,11 @@ public class OneDimensionalArrays {
         System.out.println("Result of task 6: ");
         sumOfElementsWhoseOrdinalNumbersArePrimeNumbersTask6(randomArray());
 
+        //Task #7
+        //Finding out max sum pare of elements
+        double resultOfTask7 = calculateFunctionTask7(randomArray());
+        System.out.println(resultOfTask7);
+
         //Task #8
         //Throw out members equal min( a1, a2, ..., an )
         int variableTask8 = (int) (Math.random()*20);
@@ -55,7 +61,7 @@ public class OneDimensionalArrays {
         System.out.println();
         System.out.println("Result of task 8: ");
         int [] resultOfTask8 = comparingElementsTask8(firstArray);
-        System.out.println(resultOfTask8);
+        System.out.println(Arrays.toString(resultOfTask8));
 
         //Task #9
         //Find the most common number
@@ -131,15 +137,16 @@ public class OneDimensionalArrays {
     private static double[] swapMaxAndMinElementTask4(double[] array){
         int minElementPosition = 0;
         int maxElementPosition = 0;
+        double parsedMinElementPosition;
         for (int i = 1; i < array.length; i++)
         {
             minElementPosition = array[i] < array[minElementPosition] ? i : minElementPosition;
             maxElementPosition = array[i] > array[maxElementPosition] ? i : maxElementPosition;
         }
-        //todo find out max and min position
-        array[maxElementPosition] = array[maxElementPosition]+array[minElementPosition];
-        array[minElementPosition] = array[maxElementPosition]-array[minElementPosition];
-        array[maxElementPosition] = array[maxElementPosition]-array[minElementPosition];
+        System.out.println(Arrays.toString(array));
+        parsedMinElementPosition = array[minElementPosition];
+        array[minElementPosition] = array[maxElementPosition];
+        array[maxElementPosition] = parsedMinElementPosition;
         return array;
     }
     private static void findingNumberValueGreaterThanOrdinalTask5(double [] array) {
@@ -173,8 +180,13 @@ public class OneDimensionalArrays {
         }
         return true;
     }
-    private static void calculateFunctionTask7(){
-        //todo in progress . . .
+    public static double calculateFunctionTask7(double[] arr) {
+        double max = Double.MIN_VALUE;
+        for (int i = 0, j = arr.length - 1; i < j; i++, j--) {
+            max = Math.max(max, arr[i] + arr[j]);
+        }
+        System.out.println("Original array:\n " + Arrays.toString(arr));
+        return max;
     }
     private static int[] comparingElementsTask8(int[] firstArray){
         int n = firstArray.length;

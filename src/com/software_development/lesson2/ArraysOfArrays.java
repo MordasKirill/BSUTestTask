@@ -8,22 +8,12 @@ public class ArraysOfArrays {
 
         //Task #1
         //2 random input variable and array introduced for the first task as an example
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.println("Высота матрицы: ");
-//        int firstVariableTask1 = scanner.nextInt();
-//        System.out.println("Ширина матрицы: ");
-//        int secondVariableTask1 = scanner.nextInt();
-//
-//        int[][] matrixA;
-//
-//        matrixA = new int[firstVariableTask1][secondVariableTask1];
-//        for (int i = 0; i < firstVariableTask1; i++) {
-//            System.out.println((i + 1) + "-я строка матрицы: ");
-//            for (int j = 0; j < secondVariableTask1; j++) {
-//                matrixA[i][j] = scanner.nextInt();
-//            }
-//        }
-//        task1(firstVariableTask1, secondVariableTask1, matrixA);
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.println("Amount of strings: ");
+        int stringsTask1 = scanner1.nextInt();
+        System.out.println("Amount of columns: ");
+        int columnsTask1 = scanner1.nextInt();
+        task1(createMatrix(stringsTask1,columnsTask1));
         //Task #2
         //Display the elements that are on the diagonal.
         System.out.println("Enter quality of strings");
@@ -186,14 +176,13 @@ public class ArraysOfArrays {
         System.out.println();
         return matrix;
     }
-    private static void task1(int n, int m, int[][] matrixA){
-        //TODO: Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 6
+    private static void task1(int[][] matrix){
         System.out.println();
-        System.out.println("Требуемые по условию столбцы матрицы:");
-        for (int i = 0; i < m; i ++) {
-            for (int j = 0; j < n; j += 2) {
-                if (matrixA[0][j] > matrixA[m - 1][j]) {
-                    System.out.print(matrixA[i][j] + "\t");
+        System.out.println("Columns, where first element is greater then the last one: ");
+        for (int i = 0; i < matrix.length; i ++) {
+            for (int j = 0; j < matrix.length; j += 2) {
+                if (matrix[0][j] > matrix[matrix.length - 1][j]) {
+                    System.out.print(matrix[i][j] + "\t");
                 }
             }
             System.out.println();
