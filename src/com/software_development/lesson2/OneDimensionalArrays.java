@@ -50,8 +50,8 @@ public class OneDimensionalArrays {
 
         //Task #8
         //Throw out members equal min( a1, a2, ..., an )
-        int variableTask8 = (int) (Math.random()*20);
         Random rand = new Random();
+        int variableTask8 = rand.nextInt(20);
         int[] firstArray = new int[variableTask8];
 
         for (int i = 0; i < firstArray.length; i++) {

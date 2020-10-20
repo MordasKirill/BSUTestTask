@@ -14,8 +14,8 @@ public class OneDimensionalArraysAndSorts {
         System.out.println("\n\nEnter quantity elements of second array: ");
         int secondArrayLength = scannerForTask1.nextInt();
         System.out.println("\n\nChoose number from first array: ");
-        int k = scannerForTask1.nextInt();
-        unionOfArraysTask1(firstArrayLength, secondArrayLength, k);
+        int numberToPaste = scannerForTask1.nextInt();
+        unionOfArraysTask1(firstArrayLength, secondArrayLength, numberToPaste);
 
         //Task 2
         //Form a new non-decreasing sequence of numbers task
@@ -85,7 +85,7 @@ public class OneDimensionalArraysAndSorts {
         }
         return array;
     }
-    private static void unionOfArraysTask1(int firstArrayLength, int secondArrayLength, int k){
+    private static void unionOfArraysTask1(int firstArrayLength, int secondArrayLength, int numberToPaste){
         //todo in progress, not done yet
         int [] firstArray = new int [firstArrayLength];
         for (int i = 0; i < firstArray.length; i++) {
@@ -102,20 +102,20 @@ public class OneDimensionalArraysAndSorts {
         System.out.println("\n\nResult of joining two arrays : ");
         for (int i = 0; i < firstArray.length; i++) {
             System.out.print(firstArray[i] + ", ");
-            if (k == firstArray[i]) {
+            if (numberToPaste == firstArray[i]) {
                 for (int j = 0; j < secondArray.length; j++) {
                     System.out.print(secondArray[j] + ", ");
                 }
             }
         }
     }
-    private static void nonDecreasingSequenceTask2(int n, int m){
-        int[] firstArray = new int[n + 1];
+    private static void nonDecreasingSequenceTask2(int firstSequenceSize, int secondSequenceSize){
+        int[] firstArray = new int[firstSequenceSize + 1];
         for (int i = 1; i < firstArray.length; i++) {
             firstArray[i] = firstArray[i - 1] + 1;
             System.out.print(firstArray[i] + ", ");
         }
-        int[] secondArray = new int[m + 1];
+        int[] secondArray = new int[secondSequenceSize + 1];
         for (int i = 1; i < secondArray.length; i++) {
             secondArray[i] = secondArray[i - 1] + 2;
             System.out.print(secondArray[i] + ", ");
@@ -142,8 +142,8 @@ public class OneDimensionalArraysAndSorts {
             System.out.print(value+ ", ");
         }
     }
-    private static void selectionSortTask3(int n){
-        int[] array = new int[n + 1];
+    private static void selectionSortTask3(int sequenceLength){
+        int[] array = new int[sequenceLength + 1];
         for (int i = 1; i < array.length; i++) {
             array[i] = array[i - 1] + 3;
             System.out.print(array[i] + ", ");
