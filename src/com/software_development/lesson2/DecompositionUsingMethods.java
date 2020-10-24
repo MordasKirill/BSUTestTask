@@ -3,11 +3,21 @@ package com.software_development.lesson2;
 import java.util.Scanner;
 
 public class DecompositionUsingMethods {
+    private static double maxDistance;
     public static void main(String[] args) {
         //Task 1
         //Write a method to find the greatest common
         //divisor and least common multiple of 2 natural numbers
-        //todo in progress
+        int largestCommonFactor;
+        int largestCommonMultiple;
+        Scanner scannerForTask1 = new Scanner(System.in);
+        System.out.println("Enter two natural numbers:");
+        int firstVariable = scannerForTask1.nextInt();
+        int secondVariable = scannerForTask1.nextInt();
+        largestCommonFactor = findLargestCommonFactor(firstVariable, secondVariable);
+        System.out.println("Largest Common Factor: " + largestCommonFactor);
+        largestCommonMultiple = findLargestCommonMultiple(firstVariable, secondVariable);
+        System.out.println("Least Common Multiple : " + largestCommonMultiple);
         //Task 2
         //write a method to find the greatest common divisor of 4 natural numbers
         int greatestCommonFactor;
@@ -24,23 +34,24 @@ public class DecompositionUsingMethods {
         System.out.printf("%.1f", squareCounterTask3(a));
 
         //Task 4
-//        Scanner scannerForTask4 = new Scanner(System.in);
-//        System.out.println("Enter quality of strings");
-//        int amountOfStringsTask4 = scannerForTask4.nextInt();
-//        System.out.println("Enter quality of columns");
-//        int amountOfColumnsTask4 = scannerForTask4.nextInt();
-//        int[][] matrix = new int[amountOfStringsTask4][amountOfColumnsTask4];
-//        for (int i = 0; i < matrix.length; i++) {
-//            for (int j = 0; j < matrix[i].length; j++) {
-//                int positiveNegative = Math.random() < 0.5 ? -1 : 1;
-//                matrix[i][j] = (int) (Math.random() * 100) * positiveNegative;
-//                System.out.printf("%3d ", matrix[i][j]);
-//            }
-//            System.out.println();
-//        }
-//        int [] result = findMaximumDistance(matrix);
-//        System.out.printf("Maximum distance between of points is %d and %d, that equals %.2f %n",
-//                result[0], result[1], maxDistance);
+        //Calculate max distance between pares of points
+        Scanner scannerForTask4 = new Scanner(System.in);
+        System.out.println("Enter quality of strings");
+        int amountOfStringsTask4 = scannerForTask4.nextInt();
+        System.out.println("Enter quality of columns");
+        int amountOfColumnsTask4 = scannerForTask4.nextInt();
+        int[][] matrix = new int[amountOfStringsTask4][amountOfColumnsTask4];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                int positiveNegative = Math.random() < 0.5 ? -1 : 1;
+                matrix[i][j] = (int) (Math.random() * 100) * positiveNegative;
+                System.out.printf("%3d ", matrix[i][j]);
+            }
+            System.out.println();
+        }
+        int [] result = findMaximumDistance(matrix);
+        System.out.printf("Maximum distance between of points is %d and %d, that equals %.2f %n",
+                result[0], result[1], maxDistance);
         //Task 5
         //Find the second largest number in an array
         Scanner scannerForTask5 = new Scanner(System.in);
@@ -194,7 +205,24 @@ public class DecompositionUsingMethods {
         int variableTask17 = scannerForTask17.nextInt();
         System.out.println("\nThe quantity of the subtractions: " + countSubtractionTask17(variableTask17));
     }
-
+    private static int findLargestCommonFactor(int a, int b) {
+        a = Math.abs(a);
+        b = Math.abs(b);
+        for (int i = 0; i < 2; i++) {
+            while (a != 0 && b != 0) {
+                if (a > b) {
+                    a %= b;
+                } else {
+                    b %= a;
+                }
+            }
+            a += b;
+        }
+        return a;
+    }
+    private static int findLargestCommonMultiple(int a, int b) {
+        return Math.abs(a * b / findLargestCommonFactor(a, b));
+    }
     private static int [] fillArrayTask2() {
         Scanner scanner = new Scanner(System.in);
         int [] array = new int[4];
@@ -229,25 +257,25 @@ public class DecompositionUsingMethods {
     }
 
     //todo task 4 is not done yet
-//    private static int [] findMaximumDistance (int [][] matrix) {
-//        int [] result = new int[2];
-//        double distance;
-//        maxDistance = 0;
-//        for (int i = 0; i < matrix.length - 1; i++) {
-//            for (int j = i + 1; j < matrix.length; j++) {
-//                int [][] currentPoints = {{matrix[i][0], matrix[i][1]},
-//                        {matrix[j][0], matrix[j][1]}};
-//                distance = distanceCounter(currentPoints);
-//                if (distance > maxDistance) {
-//                    maxDistance = distance;
-//                    result[0] = i + 1;
-//                    result[1] = j + 1;
-//                }
-//            }
-//        }
-//        return result;
-//    }
-private static void findSecondMaxNumberTask5(int [] array){
+    private static int [] findMaximumDistance (int [][] matrix) {
+        int [] result = new int[2];
+        double distance;
+        maxDistance = 0;
+        for (int i = 0; i < matrix.length - 1; i++) {
+            for (int j = i + 1; j < matrix.length; j++) {
+                int [][] currentPoints = {{matrix[i][0], matrix[i][1]},
+                        {matrix[j][0], matrix[j][1]}};
+                distance = distanceCounter(currentPoints);
+                if (distance > maxDistance) {
+                    maxDistance = distance;
+                    result[0] = i + 1;
+                    result[1] = j + 1;
+                }
+            }
+        }
+        return result;
+    }
+    private static void findSecondMaxNumberTask5(int [] array){
     int swap;
     for (int i=0; i<array.length;i++) {
         for (int j = 0; j < i; j++) {
