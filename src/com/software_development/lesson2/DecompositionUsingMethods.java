@@ -29,9 +29,9 @@ public class DecompositionUsingMethods {
         //Calculate the area of ​​a polygon
         Scanner scannerForTask3 = new Scanner(System.in);
         System.out.println("Enter the side of hexagon: ");
-        double a = scannerForTask3.nextInt();
+        double hexagonSite = scannerForTask3.nextInt();
         System.out.println("The area of hexagon: ");
-        System.out.printf("%.1f", squareCounterTask3(a));
+        System.out.printf("%.1f", squareCounterTask3(hexagonSite));
 
         //Task 4
         //Calculate max distance between pares of points
@@ -256,7 +256,6 @@ public class DecompositionUsingMethods {
                 + Math.pow((matrix[0][1] - matrix[1][1]), 2));
     }
 
-    //todo task 4 is not done yet
     private static int [] findMaximumDistance (int [][] matrix) {
         int [] result = new int[2];
         double distance;
@@ -288,8 +287,8 @@ public class DecompositionUsingMethods {
     }
     System.out.printf("%d, ", array[array.length - 2]);
 }
-    private static boolean isMutuallyTask6 (int[] a) {
-        return findGreatestCommonFactorTask2(a) == 1;
+    private static boolean isMutuallyTask6 (int[] number) {
+        return findGreatestCommonFactorTask2(number) == 1;
     }
     private static int amountFactorialTask7 (int [] array) {
         int amount = 0;
