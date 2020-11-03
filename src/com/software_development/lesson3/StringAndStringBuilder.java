@@ -8,6 +8,7 @@ public class StringAndStringBuilder {
 
         //Task 1
         //Find out max amount of spaces
+
         System.out.println("Task 1");
         Scanner scannerForTask1 = new Scanner(System.in);
         System.out.println("Enter string: ");
