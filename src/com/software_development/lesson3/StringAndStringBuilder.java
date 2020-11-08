@@ -13,7 +13,7 @@ public class StringAndStringBuilder {
         Scanner scannerForTask1 = new Scanner(System.in);
         System.out.println("Enter string: ");
         String stringTask1 = scannerForTask1.nextLine();
-        System.out.println(amountOfSpacesTask1(stringTask1));
+        System.out.println(getAmountOfSpacesTask1(stringTask1));
 
         //Task 2
         //Input 'b' after 'a'
@@ -88,7 +88,7 @@ public class StringAndStringBuilder {
 
     }
 
-    private static int amountOfSpacesTask1(String strings) {
+    private static int getAmountOfSpacesTask1(String strings) {
         int counter = 0;
         int maxCount = 0;
 

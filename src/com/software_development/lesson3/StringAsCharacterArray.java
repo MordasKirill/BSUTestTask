@@ -65,42 +65,23 @@ public class StringAsCharacterArray {
         return snakeCase;
     }
     private static String wordChangerTask2(String word){
-        StringBuilder strBuilder = new StringBuilder();
-        String letter;
-        for (int i = 0; i < word.length(); i++) {
-            if (i + 3 < word.length() && word.charAt(i) == 'w'
-                    && word.charAt(i + 1) == 'o'
-                    && word.charAt(i + 2) == 'r'
-                    && word.charAt(i + 3) == 'd') {
-                strBuilder.append("letter");
-                i += 3;
-            } else {
-                strBuilder.append(word.charAt(i));
-            }
-        }
-        letter = strBuilder.toString();
-        return letter;
+        return word.replace("word", "letter");
     }
     private static void findDigitsTask3(String strings){
-        char[] array = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
         int counter = 0;
         for (int i = 0; i < strings.length(); i++) {
-            for (int j = 0; j < array.length; j++) {
-                if (strings.charAt(i) == array[j]) {
+                if (Character.isDigit(strings.charAt(i))) {
                     counter++;
                 }
-            }
         }
         System.out.println("The quantity of digits is: " + counter);
     }
     private static int findNumbersTask4(String strings){
         int counter = 0;
         for (int i = 0; i < strings.length(); i++) {
-            if (isDigitTask4(strings.charAt(i))) {
                 if (i == strings.length() - 1 || !isDigitTask4(strings.charAt(i + 1))) {
                     counter++;
                 }
-            }
         }
         return counter;
     }
