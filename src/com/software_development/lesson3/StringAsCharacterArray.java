@@ -98,20 +98,16 @@ public class StringAsCharacterArray {
         return isDigit;
     }
     private static String replaceSpaceTask5(String string){
-        StringBuilder strBuilder = new StringBuilder();
         String str = string.trim();
-        boolean isSpace = false;
-        for (int i = 0; i < str.length(); i++){
-            if (str.charAt(i) == ' ') {
-                if (!isSpace) {
-                    strBuilder.append(" ");
+        StringBuilder stringBuilder = new StringBuilder(str);
+        for (int i = 0; i < stringBuilder.length(); i++) {
+            if (stringBuilder.charAt(i) == ' '){
+                if (stringBuilder.charAt(i+1) == ' '){
+                    stringBuilder.deleteCharAt(i);
+                    i--;
                 }
-                isSpace = true;
-            } else {
-                strBuilder.append(str.charAt(i));
-                isSpace = false;
             }
         }
-        return strBuilder.toString();
+        return stringBuilder.toString();
     }
 }

@@ -118,7 +118,6 @@ public class StringAndStringBuilder {
         }
         return true;
     }
-
     private static String concatenationTask4(String word) {
         String cake = String.valueOf(word.charAt(word.indexOf('т')));
         cake += String.valueOf(word.charAt(word.indexOf('о')));
@@ -151,27 +150,31 @@ public class StringAndStringBuilder {
 
     private static String deleteSpaceAndRepeatingElements(String text) {
         StringBuilder stringBuilder = new StringBuilder(text);
+        int idx;
         for (int i = 0; i < stringBuilder.length(); i++) {
             char character = stringBuilder.charAt(i);
             if (character == ' ') {
                 stringBuilder.deleteCharAt(i);
                 i--;
-                continue;
-            }
-            for (int j = i + 1; j < stringBuilder.length(); j++) {
-                if (stringBuilder.charAt(j) == character) {
-                    stringBuilder.deleteCharAt(j);
-                }
             }
         }
-        return stringBuilder.toString();
+        String str = stringBuilder.toString();
+        StringBuilder string = new StringBuilder();
+        for (int i = 0; i <  str.length(); i++) {
+            char symbol = str.charAt(i);
+            idx = str.indexOf(String.valueOf(symbol), i + 1);
+            if (idx == -1) {
+                string.append(symbol);
+            }
+        }
+        return string.toString();
     }
 
     private static String findBiggestWord(String string) {
         String biggestWord = "";
         int maxLength = 0;
         String[] words = string.split(" ");
-        for (int i = 1; i < words.length; i++) {
+        for (int i = 0; i < words.length; i++) {
             if (words[i].length() > maxLength) {
                 maxLength = words[i].length();
                 biggestWord = words[i];
